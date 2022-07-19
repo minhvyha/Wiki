@@ -5,8 +5,8 @@ from . import util
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 class AddForm(forms.Form):
-    title = forms.CharField(label='Title')
-    content = forms.CharField(widget=forms.Textarea, label="Content")
+    title = forms.CharField(label='Title', required=False)
+    content = forms.CharField(widget=forms.Textarea, required=False, label="Content")
 
 
 def index(request):
