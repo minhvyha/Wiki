@@ -8,7 +8,7 @@
 <div>
     <form action="{% url 'index' %}" method="post">
         {% csrf_token %}
-        <label for="w3review">Markdown Page</label>
+        <label for="w3review">Markdown Page:</label>
         <textarea id="w3review" name="w3review" rows="4" cols="50">
         </textarea>
         <input type="submit">
