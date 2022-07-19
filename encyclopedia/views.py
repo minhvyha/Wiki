@@ -46,7 +46,10 @@ def add(request):
 
 def wiki(request, title):
     html =  markdown2.markdown(util.get_entry(title))
-    return render(request, "{% url 'view' %}", {
+    return render(request, "encyclopedia/view.html", {
         'title':title,
         'html':html
     })
+
+def random(request):
+    ...
