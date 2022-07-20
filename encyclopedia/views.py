@@ -5,6 +5,7 @@ from . import util
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 import markdown2
+import random
 
 class AddForm(forms.Form):
     title = forms.CharField(label='Title', required=False)
@@ -51,5 +52,13 @@ def wiki(request, title):
         'html':html
     })
 
-def random(request):
-    ...
+def random_list(request):
+    page = util.list_entries()
+    n = len(page)
+    r = random.randint(0, n - 1)
+    title = page[r]
+    html =  markdown2.markdown(util.get_entry(title))
+    return render(request, 'encyclopedia/view.html', {
+        'title':title,
+        'html':html
+    })
