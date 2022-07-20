@@ -5,8 +5,11 @@
 {% endblock %}
 
 {% block body%}
+
+
+
 <div>
-    <form action="{% url 'add' %}" method="post">
+    <form action="{% url 'edit' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit">

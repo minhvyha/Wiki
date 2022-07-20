@@ -11,6 +11,8 @@ class AddForm(forms.Form):
     title = forms.CharField(label='Title', required=False)
     content = forms.CharField(widget=forms.Textarea, required=False, label="Content")
 
+class EditForm(forms.Form):
+    content = forms.CharField(widget=forms.Textarea, required=False, label='content')
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -61,4 +63,10 @@ def random_list(request):
     return render(request, 'encyclopedia/view.html', {
         'title':title,
         'html':html
+    })
+
+def edit(request):
+    return render(request, "encyclopedia/edit.html", {
+        "form" : EditForm(),
+        'errors': None
     })
