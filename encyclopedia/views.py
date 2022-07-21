@@ -58,7 +58,10 @@ def wiki(request, title):
                 'title':title,
                 'html':html
             })
-    return render(request, "encyclopedia/error.html")
+    return render(request, "encyclopedia/error.html", {
+        'top':'Sorry',
+        'bottom':'Page Not Fount 404'
+    })
 
 def random(request):
     return wiki(request, choice(util.list_entries()))
