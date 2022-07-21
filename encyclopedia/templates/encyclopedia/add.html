@@ -4,6 +4,15 @@
     Encyclopedia: Add a Page
 {% endblock %}
 
+{% block form %}
+
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %}
+    {{default}}
+</form>
+
+{% endblock %}
+
 {% block body%}
 
 

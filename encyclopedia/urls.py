@@ -9,5 +9,5 @@ urlpatterns = [
     path('wiki/<str:title>', views.wiki, name='wiki'),
     path('wiki/<str:title>/edit/', views.edit, name='edit'),
     path('save/', views.save, name='save'),
-    path('?q=<str:search>', views.search, name='search')
+    path('/search', views.search, name='search')
 ]

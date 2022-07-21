@@ -4,6 +4,15 @@
     Encyclopedia: Error
 {% endblock %}
 
+{% block form %}
+
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %}
+    {{default}}
+</form>
+
+{% endblock %}
+
 {% block body%}
 <img alt="{{ top }}" class="border img-fluid" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
 

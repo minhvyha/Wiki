@@ -4,6 +4,16 @@
     Encyclopedia: {{ title }}
 {% endblock %}
 
+{% block form %}
+
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %}
+    {{default}}
+</form>
+
+{% endblock %}
+
+
 {% block body%}
 <a href="{{ title }}/edit">Edit</a>
 {{ html | safe }}
