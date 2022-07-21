@@ -50,12 +50,15 @@ def add(request):
 
 
 def wiki(request, title):
-
-    html =  markdown2.markdown(util.get_entry(title))
-    return render(request, "encyclopedia/view.html", {
-        'title':title,
-        'html':html
-    })
+    entries = util.list_entries()
+    for i in entries:
+        if title.lower() == i.lower():
+            html =  markdown2.markdown(util.get_entry(i))
+            return render(request, "encyclopedia/view.html", {
+                'title':title,
+                'html':html
+            })
+    return render(request, "encyclopedia/error.html")
 
 def random(request):
     return wiki(request, choice(util.list_entries()))
