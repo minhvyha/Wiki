@@ -68,3 +68,7 @@ textarea {
     width: 70px;
     margin-bottom: 1rem;
 }
+
+#id_title{
+    width: 80%;
+}
